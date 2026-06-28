@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wizard of Oz – Story Overview</title>
+  <style>
+    :root {
+      --green-dark: #0f3b2e;
+      --green: #1f6f53;
+      --gold: #f2c14e;
+      --cream: #fff7e6;
+      --paper: #fffdf7;
+      --ink: #26302b;
+      --muted: #6b756f;
+      --shadow: 0 18px 45px rgba(0,0,0,0.16);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(242,193,78,0.28), transparent 32%),
+        linear-gradient(135deg, #f8f1dc 0%, #f4e4b8 42%, #d9ead3 100%);
+      min-height: 100vh;
+    }
+
+    header {
+      min-height: 70vh;
+      display: grid;
+      place-items: center;
+      padding: 48px 22px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(242,193,78,0.28), transparent 28%),
+        radial-gradient(circle at 18% 72%, rgba(255,255,255,0.10), transparent 30%),
+        linear-gradient(125deg, #0f3b2e 0%, #1f6f53 48%, #c9df9d 100%);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 22% 78%, rgba(255,255,255,0.10), transparent 28%),
+        linear-gradient(115deg, rgba(15,59,46,0.35), rgba(15,59,46,0.08) 52%, rgba(242,193,78,0.10));
+      opacity: 0.95;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 140%;
+      height: 160px;
+      bottom: -78px;
+      left: -20%;
+      background: var(--cream);
+      transform: rotate(-3deg);
+      z-index: 1;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      width: min(1060px, 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7.4vw, 6.8rem);
+      line-height: 0.94;
+      margin: 0;
+      text-shadow: 0 8px 28px rgba(0,0,0,0.32);
+    }
+
+    .subtitle {
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      max-width: 770px;
+      margin: 28px auto 34px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--gold);
+      color: #2c2410;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    }
+
+    .button.secondary {
+      color: white;
+      border: 1px solid rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .button:hover { transform: translateY(-3px); }
+
+    main {
+      background: var(--cream);
+      position: relative;
+      z-index: 3;
+      padding: 38px 22px 80px;
+    }
+
+    .section {
+      width: min(1120px, 100%);
+      margin: 0 auto 46px;
+    }
+
+    .world-strip {
+      width: min(1240px, 100%);
+      margin: -6px auto 58px;
+      position: relative;
+    }
+
+    .world-title {
+      width: min(1120px, 100%);
+      margin: 0 auto 18px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+      margin: 0 0 18px;
+      color: var(--green-dark);
+    }
+
+    .world-title p,
+    .intro-text {
+      max-width: 780px;
+      font-family: Arial, sans-serif;
+      color: #4f5a54;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .scroll-gallery {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      padding: 18px 10px 30px;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: var(--green) rgba(15,59,46,0.12);
+    }
+
+    .slide {
+      scroll-snap-align: center;
+      flex: 0 0 min(76vw, 820px);
+      height: clamp(300px, 46vw, 520px);
+      border-radius: 34px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.18);
+      background-size: cover;
+      background-position: center;
+      isolation: isolate;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(15,59,46,0.76), transparent 38%, rgba(15,59,46,0.32)),
+        linear-gradient(0deg, rgba(0,0,0,0.62), transparent 45%);
+      z-index: 1;
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 80px rgba(255,247,230,0.26);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .slide.one { background-image: linear-gradient(135deg, rgba(31,111,83,0.01), rgba(242,193,78,0.26)), url("images/oz-01-kansas.jpg"); }
+    .slide.two { background-image: linear-gradient(135deg, rgba(31,111,83,0.01), rgba(242,193,78,0.26)), url("images/oz-02-cyclone.jpg"); }
+    .slide.three { background-image: linear-gradient(135deg, rgba(31,111,83,0.01), rgba(242,193,78,0.26)), url("images/oz-03-munchkins.jpg"); }
+    .slide.four { background-image: linear-gradient(135deg, rgba(31,111,83,0.01), rgba(242,193,78,0.26)), url("images/oz-04-yellow-brick-road.jpg"); }
+    .slide.five { background-image: linear-gradient(135deg, rgba(31,111,83,0.01), rgba(242,193,78,0.26)), url("images/oz-05-companions.jpg"); }
+    .slide.six { background-image: linear-gradient(135deg, rgba(31,111,83,0.01), rgba(242,193,78,0.26)), url("images/oz-06-emerald-city.jpg"); }
+    .slide.seven { background-image: linear-gradient(135deg, rgba(31,111,83,0.01), rgba(242,193,78,0.26)), url("images/oz-07-home.jpg"); }
+
+    .slide-fill {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 70% 22%, rgba(242,193,78,0.30), transparent 30%),
+        linear-gradient(135deg, rgba(15,59,46,0.84), rgba(31,111,83,0.56));
+      z-index: 0;
+    }
+
+    .slide-caption {
+      position: absolute;
+      z-index: 4;
+      left: 28px;
+      right: 28px;
+      bottom: 26px;
+      color: white;
+    }
+
+    .slide-caption strong {
+      display: block;
+      font-size: clamp(1.45rem, 3vw, 2.4rem);
+      line-height: 1;
+      margin-bottom: 8px;
+      text-shadow: 0 4px 18px rgba(0,0,0,0.5);
+    }
+
+    .slide-caption span {
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.86);
+      text-shadow: 0 3px 14px rgba(0,0,0,0.45);
+    }
+
+    .intro-card {
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(30px, 5vw, 54px);
+      border: 1px solid rgba(15,59,46,0.12);
+    }
+
+    .foldouts {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    details {
+      background: var(--paper);
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.09);
+      border: 1px solid rgba(15,59,46,0.1);
+      overflow: hidden;
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 24px 28px;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      color: var(--green-dark);
+      font-size: 1.14rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--green), var(--gold));
+      color: white;
+      flex: 0 0 auto;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    details[open] summary::after { content: "–"; }
+
+    .fold-content {
+      padding: 0 28px 28px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .fold-content p {
+      font-size: 1.08rem;
+      line-height: 1.85;
+      margin: 0 0 16px;
+    }
+
+    .think-box {
+      background:
+        linear-gradient(135deg, rgba(15,59,46,0.94), rgba(31,111,83,0.78)),
+        radial-gradient(circle at top right, rgba(242,193,78,0.42), transparent 44%);
+      color: white;
+      border-radius: 18px;
+      padding: 24px;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .think-box::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border: 1px solid rgba(242,193,78,0.35);
+      border-radius: 50%;
+      top: -60px;
+      right: -60px;
+    }
+
+    .think-box strong {
+      position: relative;
+      z-index: 2;
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 10px;
+    }
+
+    .think-box span {
+      position: relative;
+      z-index: 2;
+      font-family: Arial, sans-serif;
+      line-height: 1.55;
+      font-size: 1.02rem;
+    }
+
+
+    .activities-card {
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(30px, 5vw, 54px);
+      border: 1px solid rgba(15,59,46,0.12);
+      margin-top: 46px;
+    }
+
+    .activity-grid {
+      display: grid;
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .activity {
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(255,253,247,0.98), rgba(255,247,230,0.92));
+      border: 1px solid rgba(15,59,46,0.12);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .activity-header {
+      background:
+        linear-gradient(135deg, rgba(15,59,46,0.96), rgba(31,111,83,0.88)),
+        radial-gradient(circle at top right, rgba(242,193,78,0.36), transparent 40%);
+      color: white;
+      padding: 22px 26px;
+    }
+
+    .activity-header h3 {
+      margin: 0 0 8px;
+      font-size: 1.55rem;
+      line-height: 1.1;
+    }
+
+    .activity-header p {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .activity-body {
+      padding: 26px;
+      font-family: Arial, sans-serif;
+      color: #4f5a54;
+      line-height: 1.7;
+    }
+
+    .word-bank,
+    .event-bank,
+    .statement-bank {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0 24px;
+    }
+
+    .pill,
+    .event-card,
+    .statement-card {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 10px 15px;
+      background: rgba(242,193,78,0.26);
+      border: 1px solid rgba(242,193,78,0.75);
+      color: var(--green-dark);
+      font-weight: 800;
+    }
+
+    .event-card,
+    .statement-card {
+      border-radius: 16px;
+      background: rgba(15,59,46,0.06);
+      border-color: rgba(15,59,46,0.18);
+      font-weight: 700;
+    }
+
+    .cloze p {
+      margin: 0 0 14px;
+      font-size: 1.03rem;
+    }
+
+    .blank {
+      display: inline-block;
+      min-width: 150px;
+      border-bottom: 2px solid rgba(15,59,46,0.55);
+      margin: 0 4px;
+      transform: translateY(-2px);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .timeline-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--green), var(--gold));
+      color: white;
+      font-weight: 900;
+    }
+
+    .timeline-line {
+      min-height: 38px;
+      border-bottom: 2px solid rgba(15,59,46,0.45);
+    }
+
+    .truth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 18px 0 24px;
+    }
+
+    .sort-column {
+      border-radius: 18px;
+      border: 1px dashed rgba(15,59,46,0.32);
+      background: rgba(15,59,46,0.04);
+      padding: 18px;
+      min-height: 210px;
+    }
+
+    .sort-column h4 {
+      margin: 0 0 14px;
+      color: var(--green-dark);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .sort-line {
+      min-height: 34px;
+      border-bottom: 2px solid rgba(15,59,46,0.36);
+      margin-bottom: 14px;
+    }
+
+    .reflection-box {
+      margin-top: 24px;
+      border-radius: 18px;
+      background: linear-gradient(90deg, rgba(15,59,46,0.08), rgba(242,193,78,0.18));
+      border: 1px dashed rgba(15,59,46,0.25);
+      padding: 22px;
+    }
+
+    .reflection-box strong {
+      display: block;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+    }
+
+    .writing-line {
+      height: 34px;
+      border-bottom: 2px solid rgba(15,59,46,0.36);
+      margin-bottom: 10px;
+    }
+
+
+    .back-link {
+      text-align: center;
+      margin-top: 42px;
+    }
+
+    .back-link a {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .back-link a:hover { text-decoration: underline; }
+
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.85);
+      padding: 28px 22px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 850px) {
+      header { min-height: 72vh; }
+      .slide { flex-basis: 86vw; }
+      .fold-content { grid-template-columns: 1fr; }
+      summary { align-items: flex-start; }
+    }
+  
+    .student-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 22px 0 8px;
+      font-family: Arial, sans-serif;
+    }
+
+    .student-details label {
+      display: grid;
+      gap: 7px;
+      color: var(--green-dark);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .student-details input {
+      border: 1px solid rgba(15,59,46,0.25);
+      border-radius: 14px;
+      padding: 13px 14px;
+      font: inherit;
+      background: white;
+      color: var(--ink);
+    }
+
+    .drag-bank,
+    .drop-row,
+    .sort-bank {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0 24px;
+    }
+
+    .drag-item {
+      cursor: grab;
+      user-select: none;
+      display: inline-block;
+      border-radius: 999px;
+      padding: 10px 15px;
+      background: rgba(242,193,78,0.28);
+      border: 1px solid rgba(242,193,78,0.75);
+      color: var(--green-dark);
+      font-weight: 800;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+
+    .drag-item:active { cursor: grabbing; }
+
+    .drop-zone {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+      min-height: 42px;
+      border: 2px dashed rgba(15,59,46,0.36);
+      border-radius: 14px;
+      background: rgba(15,59,46,0.04);
+      margin: 0 4px;
+      vertical-align: middle;
+      padding: 5px;
+    }
+
+    .drop-zone .drag-item {
+      margin: 0;
+      box-shadow: none;
+      background: rgba(242,193,78,0.42);
+    }
+
+    .drop-zone.over,
+    .sort-column.over {
+      background: rgba(242,193,78,0.18);
+      border-color: var(--gold);
+    }
+
+    .timeline .drop-zone {
+      width: 100%;
+      justify-content: flex-start;
+      min-height: 48px;
+    }
+
+    .sort-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sort-column .drag-item {
+      border-radius: 16px;
+      background: rgba(255,255,255,0.72);
+      border-color: rgba(255,255,255,0.45);
+    }
+
+    .sort-placeholder {
+      min-height: 42px;
+      border: 2px dashed rgba(15,59,46,0.22);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.38);
+    }
+
+    .activity-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .action-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      cursor: pointer;
+      background: var(--green);
+      color: white;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+    }
+
+    .action-button.gold {
+      background: var(--gold);
+      color: #2c2410;
+    }
+
+    .feedback {
+      margin-top: 16px;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      color: var(--green-dark);
+    }
+
+    textarea.reflection-text {
+      width: 100%;
+      min-height: 120px;
+      border: 1px solid rgba(15,59,46,0.25);
+      border-radius: 16px;
+      padding: 14px;
+      font: inherit;
+      resize: vertical;
+      background: rgba(255,255,255,0.8);
+      color: var(--ink);
+      margin-top: 10px;
+    }
+
+    @media (max-width: 850px) {
+      .student-details { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <section class="hero">
+      <div class="eyebrow">The original journey</div>
+      <h1>The Wizard of Oz</h1>
+      <p class="subtitle">
+        Before Hinemoa follows the Great South Road, students meet Dorothy, the cyclone, the Yellow Brick Road, and the mysterious figure behind the curtain.
+      </p>
+      <div class="hero-buttons">
+        <a class="button primary" href="story.html">Read Hinemoa’s Journey</a>
+        <a class="button secondary" href="index.html">Home</a>
+        <a class="button secondary" href="culture.html">Oz in Popular Culture</a>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="world-strip">
+      <div class="world-title">
+        <h2>Through the world of Oz</h2>
+        <p>
+          Scroll across the journey from Kansas to Oz, from the Yellow Brick Road to the discovery that power is not always what it appears to be.
+        </p>
+      </div>
+
+      <div class="scroll-gallery" aria-label="Seven image gallery for The Wizard of Oz story overview">
+        <article class="slide one"><div class="slide-fill"></div><div class="slide-caption"><strong>Kansas</strong><span>Dorothy begins in a dry, grey world with Aunt Em, Uncle Henry, and Toto.</span></div></article>
+        <article class="slide two"><div class="slide-fill"></div><div class="slide-caption"><strong>The cyclone</strong><span>A storm lifts Dorothy’s house and carries her far from home.</span></div></article>
+        <article class="slide three"><div class="slide-fill"></div><div class="slide-caption"><strong>The Munchkins</strong><span>Dorothy arrives in Oz and is mistaken for someone powerful.</span></div></article>
+        <article class="slide four"><div class="slide-fill"></div><div class="slide-caption"><strong>The Yellow Brick Road</strong><span>The road becomes a path towards help, hope, and discovery.</span></div></article>
+        <article class="slide five"><div class="slide-fill"></div><div class="slide-caption"><strong>The companions</strong><span>The Scarecrow, Tin Woodman, and Lion each search for what they think they lack.</span></div></article>
+        <article class="slide six"><div class="slide-fill"></div><div class="slide-caption"><strong>The Emerald City</strong><span>The travellers reach the Wizard and discover that appearances can mislead.</span></div></article>
+        <article class="slide seven"><div class="slide-fill"></div><div class="slide-caption"><strong>Home</strong><span>Dorothy learns that the power to return was with her all along.</span></div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="intro-card">
+        <h2>Story Overview</h2>
+        <p class="intro-text">
+          The original story follows Dorothy as she leaves Kansas, travels through Oz, meets companions, faces danger, and discovers that the answers she seeks are not quite where she expected them to be.
+        </p>
+
+        <div class="foldouts">
+          <details open>
+            <summary>1. Kansas</summary>
+            <div class="fold-content">
+              <div>
+                <p>Dorothy is a young girl who lives with her Aunt Em and Uncle Henry on a farm in Kansas. One day, a powerful cyclone lifts her house into the air and carries it far away to the magical Land of Oz.</p>
+                <p>When the house lands, it accidentally crushes the Wicked Witch of the East, freeing the people known as the Munchkins from her rule.</p>
+              </div>
+              <aside class="think-box">
+                <strong>Think about</strong>
+                <span>How does the cyclone force Dorothy into a new world before she is ready?</span>
+              </aside>
+            </div>
+          </details>
+
+          <details>
+            <summary>2. The Yellow Brick Road</summary>
+            <div class="fold-content">
+              <div>
+                <p>Dorothy wants to return home, but nobody knows how to get back to Kansas. The Good Witch of the North tells her that the only person who may be able to help is the mysterious Wizard of Oz, who lives in the Emerald City.</p>
+                <p>Dorothy sets off along the Yellow Brick Road to find him. The road becomes more than a path through Oz; it becomes the beginning of her search for help, safety, and answers.</p>
+              </div>
+              <aside class="think-box">
+                <strong>Think about</strong>
+                <span>Why do stories often use roads or journeys to show change?</span>
+              </aside>
+            </div>
+          </details>
+
+          <details>
+            <summary>3. New Friends</summary>
+            <div class="fold-content">
+              <div>
+                <p>Along the way, Dorothy meets three companions. The Scarecrow wishes for a brain because he believes he is not intelligent. The Tin Woodman wants a heart because he thinks he cannot feel emotions. The Cowardly Lion wants courage because he believes he is afraid of everything.</p>
+                <p>Together they travel through forests, rivers, fields, and dangerous lands while helping one another overcome many challenges.</p>
+              </div>
+              <aside class="think-box">
+                <strong>Think about</strong>
+                <span>What do the companions reveal about self-doubt and confidence?</span>
+              </aside>
+            </div>
+          </details>
+
+          <details>
+            <summary>4. The Wizard</summary>
+            <div class="fold-content">
+              <div>
+                <p>When they finally reach the Emerald City, the Wizard agrees to help them, but only if they defeat the Wicked Witch of the West. After a difficult journey, Dorothy defeats the witch and returns to claim the Wizard's promise.</p>
+                <p>However, the travellers discover that the Wizard is not a powerful magician at all. He is an ordinary man who has been using tricks and illusions to appear great.</p>
+              </div>
+              <aside class="think-box">
+                <strong>Think about</strong>
+                <span>What happens when powerful people or places are revealed to be less magical than they seemed?</span>
+              </aside>
+            </div>
+          </details>
+
+          <details>
+            <summary>5. There’s No Place Like Home</summary>
+            <div class="fold-content">
+              <div>
+                <p>Although the Wizard cannot magically give the Scarecrow, Tin Woodman, and Lion what they seek, he helps them realise they already possess the qualities they wanted. The Scarecrow has shown wisdom, the Tin Woodman has shown kindness, and the Lion has shown bravery throughout their journey.</p>
+                <p>Eventually Dorothy learns that she has always had the power to return home. Using the magic of her silver shoes, she travels back to Kansas, carrying with her new friends, new experiences, and a greater understanding of herself.</p>
+              </div>
+              <aside class="think-box">
+                <strong>Think about</strong>
+                <span>What does Dorothy understand at the end that she did not understand at the beginning?</span>
+              </aside>
+            </div>
+          </details>
+        </div>
+      </div>
+
+        
+        <div class="activities-card">
+          <h2>Activities</h2>
+          <p class="intro-text">
+            Drag each answer into the correct place. When you are finished, download your CSV and send it to your teacher.
+          </p>
+
+          <div class="student-details">
+            <label>
+              Student name
+              <input id="studentName" type="text" placeholder="Type your name">
+            </label>
+            <label>
+              Class
+              <input id="studentClass" type="text" placeholder="Type your class">
+            </label>
+          </div>
+
+          <div class="activity-grid">
+            <article class="activity" id="activity-cloze">
+              <div class="activity-header">
+                <h3>Activity 1: Fill the Summary</h3>
+                <p>Drag the mixed-up words into the correct gaps.</p>
+              </div>
+              <div class="activity-body">
+                <strong>Word Bank</strong>
+                <div class="drag-bank" id="clozeBank">
+                  <span class="drag-item" draggable="true" data-group="cloze" data-value="Wizard">Wizard</span>
+                  <span class="drag-item" draggable="true" data-group="cloze" data-value="Heart">Heart</span>
+                  <span class="drag-item" draggable="true" data-group="cloze" data-value="Kansas">Kansas</span>
+                  <span class="drag-item" draggable="true" data-group="cloze" data-value="Scarecrow">Scarecrow</span>
+                  <span class="drag-item" draggable="true" data-group="cloze" data-value="Home">Home</span>
+                  <span class="drag-item" draggable="true" data-group="cloze" data-value="Courage">Courage</span>
+                  <span class="drag-item" draggable="true" data-group="cloze" data-value="Emerald City">Emerald City</span>
+                  <span class="drag-item" draggable="true" data-group="cloze" data-value="Cyclone">Cyclone</span>
+                </div>
+
+                <div class="cloze">
+                  <p>Dorothy lives on a farm in <span class="drop-zone" data-group="cloze" data-answer="Kansas"></span>.</p>
+                  <p>One day a powerful <span class="drop-zone" data-group="cloze" data-answer="Cyclone"></span> carries her to Oz.</p>
+                  <p>To find a way <span class="drop-zone" data-group="cloze" data-answer="Home"></span>, she follows the Yellow Brick Road to the <span class="drop-zone" data-group="cloze" data-answer="Emerald City"></span>.</p>
+                  <p>Along the way she meets the <span class="drop-zone" data-group="cloze" data-answer="Scarecrow"></span>, the Tin Woodman, and the Cowardly Lion.</p>
+                  <p>The Tin Woodman wants a <span class="drop-zone" data-group="cloze" data-answer="Heart"></span> while the Lion wants <span class="drop-zone" data-group="cloze" data-answer="Courage"></span>.</p>
+                  <p>Eventually they discover that the <span class="drop-zone" data-group="cloze" data-answer="Wizard"></span> is not as powerful as he first appears.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="activity" id="activity-timeline">
+              <div class="activity-header">
+                <h3>Activity 2: Journey Timeline</h3>
+                <p>Drag the events into the correct order.</p>
+              </div>
+              <div class="activity-body">
+                <strong>Event Cards</strong>
+                <div class="drag-bank" id="timelineBank">
+                  <span class="drag-item" draggable="true" data-group="timeline" data-value="Dorothy returns to Kansas">Dorothy returns to Kansas</span>
+                  <span class="drag-item" draggable="true" data-group="timeline" data-value="The Wizard is revealed">The Wizard is revealed</span>
+                  <span class="drag-item" draggable="true" data-group="timeline" data-value="Dorothy arrives in Oz">Dorothy arrives in Oz</span>
+                  <span class="drag-item" draggable="true" data-group="timeline" data-value="Dorothy follows the Yellow Brick Road">Dorothy follows the Yellow Brick Road</span>
+                  <span class="drag-item" draggable="true" data-group="timeline" data-value="The cyclone lifts Dorothy's house">The cyclone lifts Dorothy's house</span>
+                  <span class="drag-item" draggable="true" data-group="timeline" data-value="Dorothy defeats the Wicked Witch of the West">Dorothy defeats the Wicked Witch of the West</span>
+                  <span class="drag-item" draggable="true" data-group="timeline" data-value="Dorothy meets the Scarecrow">Dorothy meets the Scarecrow</span>
+                </div>
+
+                <div class="timeline">
+                  <div class="timeline-row"><div class="timeline-number">1</div><div class="drop-zone" data-group="timeline" data-answer="The cyclone lifts Dorothy's house"></div></div>
+                  <div class="timeline-row"><div class="timeline-number">2</div><div class="drop-zone" data-group="timeline" data-answer="Dorothy arrives in Oz"></div></div>
+                  <div class="timeline-row"><div class="timeline-number">3</div><div class="drop-zone" data-group="timeline" data-answer="Dorothy follows the Yellow Brick Road"></div></div>
+                  <div class="timeline-row"><div class="timeline-number">4</div><div class="drop-zone" data-group="timeline" data-answer="Dorothy meets the Scarecrow"></div></div>
+                  <div class="timeline-row"><div class="timeline-number">5</div><div class="drop-zone" data-group="timeline" data-answer="Dorothy defeats the Wicked Witch of the West"></div></div>
+                  <div class="timeline-row"><div class="timeline-number">6</div><div class="drop-zone" data-group="timeline" data-answer="The Wizard is revealed"></div></div>
+                  <div class="timeline-row"><div class="timeline-number">7</div><div class="drop-zone" data-group="timeline" data-answer="Dorothy returns to Kansas"></div></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="activity" id="activity-truth">
+              <div class="activity-header">
+                <h3>Activity 3: Truth or Illusion?</h3>
+                <p>Sort each statement into the correct column.</p>
+              </div>
+              <div class="activity-body">
+                <div class="truth-grid">
+                  <div class="sort-column" data-group="truth" data-answer="Truth">
+                    <h4>Truth</h4>
+                    <div class="sort-placeholder"></div>
+                    <div class="sort-placeholder"></div>
+                    <div class="sort-placeholder"></div>
+                    <div class="sort-placeholder"></div>
+                  </div>
+
+                  <div class="sort-column" data-group="truth" data-answer="Illusion">
+                    <h4>Illusion</h4>
+                    <div class="sort-placeholder"></div>
+                    <div class="sort-placeholder"></div>
+                    <div class="sort-placeholder"></div>
+                    <div class="sort-placeholder"></div>
+                  </div>
+                </div>
+
+                <strong>Statements</strong>
+                <div class="sort-bank" id="truthBank">
+                  <span class="drag-item" draggable="true" data-group="truth" data-value="The Lion has no courage." data-correct="Illusion">The Lion has no courage.</span>
+                  <span class="drag-item" draggable="true" data-group="truth" data-value="The Wizard is all-powerful." data-correct="Illusion">The Wizard is all-powerful.</span>
+                  <span class="drag-item" draggable="true" data-group="truth" data-value="Dorothy can return home." data-correct="Truth">Dorothy can return home.</span>
+                  <span class="drag-item" draggable="true" data-group="truth" data-value="The Scarecrow is clever." data-correct="Truth">The Scarecrow is clever.</span>
+                  <span class="drag-item" draggable="true" data-group="truth" data-value="The Wizard is an ordinary man." data-correct="Truth">The Wizard is an ordinary man.</span>
+                  <span class="drag-item" draggable="true" data-group="truth" data-value="Dorothy is trapped forever." data-correct="Illusion">Dorothy is trapped forever.</span>
+                  <span class="drag-item" draggable="true" data-group="truth" data-value="The Lion is brave." data-correct="Truth">The Lion is brave.</span>
+                  <span class="drag-item" draggable="true" data-group="truth" data-value="The Scarecrow has no brain." data-correct="Illusion">The Scarecrow has no brain.</span>
+                </div>
+
+                <div class="reflection-box">
+                  <strong>Final reflection: What do you think is the most important lesson Dorothy learns during her journey?</strong>
+                  <textarea class="reflection-text" id="reflection" placeholder="Write your answer here..."></textarea>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="activity-actions">
+            <button class="action-button" type="button" onclick="checkAnswers()">Check Answers</button>
+            <button class="action-button gold" type="button" onclick="downloadCSV()">Download CSV for Teacher</button>
+            <button class="action-button" type="button" onclick="resetActivities()">Reset Activities</button>
+          </div>
+          <div class="feedback" id="feedback"></div>
+        </div>
+
+
+      <div class="back-link">
+        <a href="index.html">← Back to Hinemoa and the Great South Road</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    The Wizard of Oz · Story Overview
+  </footer>
+
+  <script>
+    let draggedItem = null;
+
+    function setupDragDrop() {
+      document.querySelectorAll('.drag-item').forEach(item => {
+        item.addEventListener('dragstart', event => {
+          draggedItem = item;
+          event.dataTransfer.setData('text/plain', item.dataset.value || item.textContent.trim());
+        });
+      });
+
+      document.querySelectorAll('.drop-zone, .drag-bank, .sort-bank, .sort-column').forEach(zone => {
+        zone.addEventListener('dragover', event => {
+          event.preventDefault();
+          zone.classList.add('over');
+        });
+
+        zone.addEventListener('dragleave', () => {
+          zone.classList.remove('over');
+        });
+
+        zone.addEventListener('drop', event => {
+          event.preventDefault();
+          zone.classList.remove('over');
+          if (!draggedItem) return;
+
+          const itemGroup = draggedItem.dataset.group;
+          const zoneGroup = zone.dataset.group;
+
+          if (zone.classList.contains('sort-column') && itemGroup === 'truth') {
+            zone.querySelector('.sort-placeholder')?.remove();
+            zone.appendChild(draggedItem);
+          } else if ((zone.classList.contains('drag-bank') || zone.classList.contains('sort-bank')) && itemGroup === zone.id.replace('Bank', '').replace('truth', 'truth')) {
+            zone.appendChild(draggedItem);
+          } else if (zone.classList.contains('drop-zone') && itemGroup === zoneGroup) {
+            if (zone.children.length > 0) {
+              const oldItem = zone.children[0];
+              const homeBank = document.getElementById(itemGroup + 'Bank');
+              if (homeBank) homeBank.appendChild(oldItem);
+            }
+            zone.appendChild(draggedItem);
+          } else if ((zone.id === 'clozeBank' && itemGroup === 'cloze') || (zone.id === 'timelineBank' && itemGroup === 'timeline') || (zone.id === 'truthBank' && itemGroup === 'truth')) {
+            zone.appendChild(draggedItem);
+          }
+
+          draggedItem = null;
+        });
+      });
+    }
+
+    function getDropAnswer(zone) {
+      const item = zone.querySelector('.drag-item');
+      return item ? item.dataset.value : '';
+    }
+
+    function scoreActivities() {
+      let total = 0;
+      let correct = 0;
+
+      document.querySelectorAll('.drop-zone[data-answer]').forEach(zone => {
+        total++;
+        if (getDropAnswer(zone) === zone.dataset.answer) correct++;
+      });
+
+      document.querySelectorAll('#activity-truth .sort-column .drag-item').forEach(item => {
+        total++;
+        const column = item.closest('.sort-column');
+        if (column && item.dataset.correct === column.dataset.answer) correct++;
+      });
+
+      return { correct, total };
+    }
+
+    function collectAnswers() {
+      const cloze = Array.from(document.querySelectorAll('#activity-cloze .drop-zone')).map((zone, i) => ({
+        question: 'Cloze ' + (i + 1),
+        answer: getDropAnswer(zone),
+        correctAnswer: zone.dataset.answer,
+        isCorrect: getDropAnswer(zone) === zone.dataset.answer
+      }));
+
+      const timeline = Array.from(document.querySelectorAll('#activity-timeline .drop-zone')).map((zone, i) => ({
+        question: 'Timeline ' + (i + 1),
+        answer: getDropAnswer(zone),
+        correctAnswer: zone.dataset.answer,
+        isCorrect: getDropAnswer(zone) === zone.dataset.answer
+      }));
+
+      const truth = Array.from(document.querySelectorAll('#activity-truth .sort-column .drag-item')).map((item, i) => {
+        const column = item.closest('.sort-column');
+        return {
+          question: 'Truth or Illusion ' + (i + 1),
+          answer: item.dataset.value,
+          placedIn: column ? column.dataset.answer : '',
+          correctAnswer: item.dataset.correct,
+          isCorrect: column && item.dataset.correct === column.dataset.answer
+        };
+      });
+
+      return { cloze, timeline, truth };
+    }
+
+    function checkAnswers() {
+      const { correct, total } = scoreActivities();
+      const feedback = document.getElementById('feedback');
+      feedback.textContent = 'Score: ' + correct + ' / ' + total + '. You can keep moving answers, then download the CSV when you are finished.';
+    }
+
+    function csvEscape(value) {
+      const text = String(value ?? '');
+      return '"' + text.replace(/"/g, '""') + '"';
+    }
+
+    function downloadCSV() {
+      const studentName = document.getElementById('studentName').value.trim();
+      const studentClass = document.getElementById('studentClass').value.trim();
+      const reflection = document.getElementById('reflection').value.trim();
+      const { correct, total } = scoreActivities();
+      const answers = collectAnswers();
+
+      const rows = [
+        ['Student Name', studentName],
+        ['Class', studentClass],
+        ['Resource', 'The Wizard of Oz – Story Overview'],
+        ['Score', correct + ' / ' + total],
+        ['Reflection', reflection],
+        [],
+        ['Activity', 'Question', 'Student Answer', 'Placed In', 'Correct Answer', 'Correct?']
+      ];
+
+      answers.cloze.forEach(item => rows.push(['Fill the Summary', item.question, item.answer, '', item.correctAnswer, item.isCorrect ? 'Yes' : 'No']));
+      answers.timeline.forEach(item => rows.push(['Journey Timeline', item.question, item.answer, '', item.correctAnswer, item.isCorrect ? 'Yes' : 'No']));
+      answers.truth.forEach(item => rows.push(['Truth or Illusion', item.question, item.answer, item.placedIn, item.correctAnswer, item.isCorrect ? 'Yes' : 'No']));
+
+      const csv = rows.map(row => row.map(csvEscape).join(',')).join('\\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const safeName = (studentName || 'student').replace(/[^a-z0-9_-]/gi, '_');
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = safeName + '_wizard_of_oz_results.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      document.getElementById('feedback').textContent = 'CSV downloaded. Send that file to your teacher.';
+    }
+
+    function resetActivities() {
+      ['cloze', 'timeline', 'truth'].forEach(group => {
+        const bank = document.getElementById(group + 'Bank');
+        if (!bank) return;
+        document.querySelectorAll('.drag-item[data-group="' + group + '"]').forEach(item => bank.appendChild(item));
+      });
+
+      document.querySelectorAll('.sort-column').forEach(column => {
+        const current = column.querySelectorAll('.sort-placeholder').length;
+        for (let i = current; i < 4; i++) {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'sort-placeholder';
+          column.appendChild(placeholder);
+        }
+      });
+
+      document.getElementById('feedback').textContent = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', setupDragDrop);
+  </script>
+
+</body>
+</html>

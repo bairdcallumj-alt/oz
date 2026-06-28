@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 1939 Film and the Legacy of The Wizard of Oz</title>
+  <style>
+    :root {
+      --green-dark: #0f3b2e;
+      --green: #1f6f53;
+      --gold: #f2c14e;
+      --ruby: #b3132f;
+      --blue: #2d6f9f;
+      --cream: #fff7e6;
+      --paper: #fffdf7;
+      --ink: #26302b;
+      --muted: #6b756f;
+      --shadow: 0 18px 45px rgba(0,0,0,0.16);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(242,193,78,0.28), transparent 32%),
+        linear-gradient(135deg, #f8f1dc 0%, #f4e4b8 42%, #d9ead3 100%);
+      min-height: 100vh;
+    }
+
+    header {
+      min-height: 72vh;
+      display: grid;
+      place-items: center;
+      padding: 48px 22px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 18%, rgba(242,193,78,0.36), transparent 26%),
+        radial-gradient(circle at 20% 78%, rgba(179,19,47,0.25), transparent 25%),
+        linear-gradient(125deg, #111 0%, #2d2d2d 38%, #1f6f53 39%, #2d6f9f 70%, #f2c14e 100%);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.56) 0%, rgba(0,0,0,0.35) 36%, rgba(15,59,46,0.18) 37%, rgba(15,59,46,0.08)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 2px, transparent 2px 82px);
+      opacity: 0.95;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 140%;
+      height: 160px;
+      bottom: -78px;
+      left: -20%;
+      background: var(--cream);
+      transform: rotate(-3deg);
+      z-index: 1;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      width: min(1060px, 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 6.4rem);
+      line-height: 0.94;
+      margin: 0;
+      text-shadow: 0 8px 28px rgba(0,0,0,0.36);
+    }
+
+    .subtitle {
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      max-width: 820px;
+      margin: 28px auto 34px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--gold);
+      color: #2c2410;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    }
+
+    .button.secondary {
+      color: white;
+      border: 1px solid rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .button:hover { transform: translateY(-3px); }
+
+    main {
+      background: var(--cream);
+      position: relative;
+      z-index: 3;
+      padding: 38px 22px 80px;
+    }
+
+    .section {
+      width: min(1120px, 100%);
+      margin: 0 auto 46px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1;
+      margin: 0 0 18px;
+      color: var(--green-dark);
+    }
+
+    .intro-card, .activities-card, .tech-card {
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(30px, 5vw, 54px);
+      border: 1px solid rgba(15,59,46,0.12);
+      margin-bottom: 46px;
+    }
+
+    .reading-text p, .intro-text {
+      max-width: 900px;
+      font-family: Arial, sans-serif;
+      color: #4f5a54;
+      font-size: 1.05rem;
+      line-height: 1.78;
+      margin: 0 0 18px;
+    }
+
+    .tech-snapshot {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .snapshot-card {
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 170px;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(15,59,46,0.96), rgba(31,111,83,0.78)),
+        radial-gradient(circle at top right, rgba(242,193,78,0.36), transparent 38%);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .snapshot-card:nth-child(2) { background: linear-gradient(135deg, #2a2a2a, #6d6d6d); }
+    .snapshot-card:nth-child(3) { background: linear-gradient(135deg, var(--ruby), #d96a7d); }
+    .snapshot-card:nth-child(4) { background: linear-gradient(135deg, var(--blue), #71a9c5); }
+
+    .snapshot-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.24);
+      top: -42px;
+      right: -38px;
+    }
+
+    .snapshot-card strong {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .snapshot-card span {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.88);
+      position: relative;
+      z-index: 1;
+    }
+
+    .student-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 22px 0 8px;
+      font-family: Arial, sans-serif;
+    }
+
+    .student-details label {
+      display: grid;
+      gap: 7px;
+      color: var(--green-dark);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .student-details input, textarea.reflection-text {
+      border: 1px solid rgba(15,59,46,0.25);
+      border-radius: 14px;
+      padding: 13px 14px;
+      font: inherit;
+      background: white;
+      color: var(--ink);
+    }
+
+    .activity-grid {
+      display: grid;
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .activity {
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255,253,247,0.98), rgba(255,247,230,0.92));
+      border: 1px solid rgba(15,59,46,0.12);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .activity-header {
+      background:
+        linear-gradient(135deg, rgba(15,59,46,0.96), rgba(31,111,83,0.88)),
+        radial-gradient(circle at top right, rgba(242,193,78,0.36), transparent 40%);
+      color: white;
+      padding: 22px 26px;
+    }
+
+    .activity-header h3 {
+      margin: 0 0 8px;
+      font-size: 1.55rem;
+      line-height: 1.1;
+    }
+
+    .activity-header p {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .activity-body {
+      padding: 26px;
+      font-family: Arial, sans-serif;
+      color: #4f5a54;
+      line-height: 1.7;
+    }
+
+    .drag-bank, .sort-bank {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0 24px;
+    }
+
+    .drag-item {
+      cursor: grab;
+      user-select: none;
+      display: inline-block;
+      border-radius: 999px;
+      padding: 10px 15px;
+      background: rgba(242,193,78,0.28);
+      border: 1px solid rgba(242,193,78,0.75);
+      color: var(--green-dark);
+      font-weight: 800;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+
+    .drag-item:active { cursor: grabbing; }
+
+    .drop-zone {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 145px;
+      min-height: 42px;
+      border: 2px dashed rgba(15,59,46,0.36);
+      border-radius: 14px;
+      background: rgba(15,59,46,0.04);
+      margin: 0 4px;
+      vertical-align: middle;
+      padding: 5px;
+    }
+
+    .match-grid, .sort-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 18px 0 24px;
+    }
+
+    .sort-column, .match-target {
+      border-radius: 18px;
+      border: 1px dashed rgba(15,59,46,0.32);
+      background: rgba(15,59,46,0.04);
+      padding: 18px;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .match-target { min-height: 98px; }
+
+    .sort-column h4, .match-target h4 {
+      margin: 0 0 10px;
+      color: var(--green-dark);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .sort-placeholder {
+      min-height: 42px;
+      border: 2px dashed rgba(15,59,46,0.22);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.38);
+    }
+
+    .drop-zone .drag-item, .sort-column .drag-item, .match-target .drag-item {
+      margin: 0;
+      box-shadow: none;
+      background: rgba(242,193,78,0.42);
+      border-radius: 14px;
+    }
+
+    .drop-zone.over, .sort-column.over, .match-target.over, .drag-bank.over, .sort-bank.over {
+      background: rgba(242,193,78,0.18);
+      border-color: var(--gold);
+    }
+
+    .reflection-box {
+      margin-top: 24px;
+      border-radius: 18px;
+      background: linear-gradient(90deg, rgba(15,59,46,0.08), rgba(242,193,78,0.18));
+      border: 1px dashed rgba(15,59,46,0.25);
+      padding: 22px;
+    }
+
+    .reflection-box strong {
+      display: block;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+    }
+
+    textarea.reflection-text {
+      width: 100%;
+      min-height: 130px;
+      resize: vertical;
+      background: rgba(255,255,255,0.85);
+      margin-top: 10px;
+    }
+
+    .activity-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .action-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      cursor: pointer;
+      background: var(--green);
+      color: white;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+    }
+
+    .action-button.gold {
+      background: var(--gold);
+      color: #2c2410;
+    }
+
+    .feedback {
+      margin-top: 16px;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      color: var(--green-dark);
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 42px;
+    }
+
+    .back-link a {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .back-link a:hover { text-decoration: underline; }
+
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.85);
+      padding: 28px 22px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.94rem;
+    }
+
+
+
+    .gallery-card {
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(30px, 5vw, 54px);
+      border: 1px solid rgba(15,59,46,0.12);
+      margin-bottom: 46px;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .gallery-slot {
+      border: 0;
+      padding: 0;
+      text-align: left;
+      border-radius: 22px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      border: 1px solid rgba(15,59,46,0.12);
+      position: relative;
+      min-height: 245px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gallery-slot:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.18);
+    }
+
+    .gallery-image-wrap {
+      position: relative;
+      min-height: 178px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 70% 24%, rgba(242,193,78,0.48), transparent 28%),
+        linear-gradient(135deg, rgba(15,59,46,0.95), rgba(45,111,159,0.78));
+      display: grid;
+      place-items: center;
+    }
+
+    .gallery-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    .gallery-placeholder {
+      position: relative;
+      z-index: 2;
+      color: rgba(255,255,255,0.92);
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      text-align: center;
+      padding: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.82rem;
+    }
+
+    .gallery-caption {
+      padding: 15px 16px 17px;
+      font-family: Arial, sans-serif;
+      background: rgba(255,253,247,0.96);
+    }
+
+    .gallery-caption strong {
+      display: block;
+      color: var(--green-dark);
+      font-size: 0.96rem;
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+
+    .gallery-caption span {
+      color: #5f6964;
+      font-size: 0.86rem;
+      line-height: 1.35;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(0,0,0,0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-content {
+      width: min(1120px, 96vw);
+      max-height: 92vh;
+      display: grid;
+      gap: 14px;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .lightbox-image-frame {
+      width: 100%;
+      height: min(72vh, 720px);
+      border-radius: 20px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 70% 24%, rgba(242,193,78,0.48), transparent 28%),
+        linear-gradient(135deg, rgba(15,59,46,0.95), rgba(45,111,159,0.78));
+      display: grid;
+      place-items: center;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.45);
+      position: relative;
+    }
+
+    .lightbox-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: rgba(0,0,0,0.25);
+    }
+
+    .lightbox-placeholder {
+      position: absolute;
+      z-index: 1;
+      color: rgba(255,255,255,0.88);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: center;
+      padding: 32px;
+      font-size: clamp(1.2rem, 4vw, 3rem);
+    }
+
+    .lightbox-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+
+    .lightbox-caption strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+
+    .close-lightbox {
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border-radius: 999px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+
+    @media (max-width: 1050px) {
+      .image-gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 850px) {
+      header { min-height: 72vh; }
+      .student-details, .tech-snapshot, .match-grid, .sort-grid, .image-gallery { grid-template-columns: 1fr; }
+      .lightbox-caption { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <section class="hero">
+      <div class="eyebrow">Film technology · 1939</div>
+      <h1>The 1939 Film and the Legacy of Oz</h1>
+      <p class="subtitle">
+        Explore why The Wizard of Oz felt revolutionary: colour, Technicolor, film reels, chemical processing, practical effects, and the difference between filmmaking then and now.
+      </p>
+      <div class="hero-buttons">
+        <a class="button primary" href="#activities">Start the Activities</a>
+        <a class="button secondary" href="index.html">Home</a>
+        <a class="button secondary" href="story.html">Read Hinemoa’s Journey</a>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="intro-card">
+        <h2>The 1939 Film and the Legacy of The Wizard of Oz</h2>
+        <div class="reading-text">
+          <p>Although The Wonderful Wizard of Oz was first published by L. Frank Baum in 1900, many people today know the story through the famous 1939 film adaptation, The Wizard of Oz. Starring Judy Garland as Dorothy, the film became one of the most successful and influential movies ever made. It was famous for its use of colour, particularly the moment when Dorothy leaves the black-and-white world of Kansas and enters the colourful Land of Oz. This visual contrast helped audiences experience the wonder of Oz in a powerful new way.</p>
+          <p>The film introduced many memorable elements that remain well known today, including Dorothy's ruby slippers, the song "Over the Rainbow," and the phrase, "There's no place like home." While the movie follows the main events of Baum's story, it also makes several changes. In the original novel, Dorothy's shoes are silver rather than ruby, and some characters and adventures are different.</p>
+          <p>More than eighty years after its release, The Wizard of Oz continues to influence popular culture. References to the Yellow Brick Road, the Emerald City, flying monkeys, and the Wicked Witch can be found in movies, television shows, books, advertisements, and video games. People often use the expression "pay no attention to the man behind the curtain" when discussing leaders or organisations that appear powerful but are actually hiding the truth. Likewise, describing someone's journey as "following the Yellow Brick Road" has become a way of talking about a path towards a goal.</p>
+          <p>The story's themes of friendship, courage, intelligence, kindness, and belonging continue to resonate with audiences around the world. As a result, The Wizard of Oz remains one of the most recognised and referenced stories in modern culture, inspiring new adaptations and retellings for each generation.</p>
+        </div>
+      </div>
+
+      <div class="tech-card">
+        <h2>Behind the Colour</h2>
+        <p class="intro-text">
+          The activities below focus on the technology behind the 1939 film. Students compare film and digital cameras, investigate chemical processing, and think about why Technicolor made Oz feel so different from Kansas.
+        </p>
+        <div class="tech-snapshot" aria-label="Film technology snapshot cards">
+          <div class="snapshot-card"><strong>Film reels</strong><span>Images were captured on physical strips of film, not computer files.</span></div>
+          <div class="snapshot-card"><strong>Chemicals</strong><span>Film had to be developed before people could properly see the recorded images.</span></div>
+          <div class="snapshot-card"><strong>Technicolor</strong><span>Colour was created through a special film process using filters, dyes, and careful lighting.</span></div>
+          <div class="snapshot-card"><strong>Practical effects</strong><span>Sets, wires, costumes, lighting, and camera tricks created the fantasy world.</span></div>
+        </div>
+      </div>
+
+
+
+      <div class="gallery-card" id="behind-scenes-gallery">
+        <h2>Behind the Scenes Gallery</h2>
+        <p class="intro-text">
+          Click any image slot to view it full screen.
+        </p>
+        <div class="image-gallery" aria-label="Clickable behind the scenes image gallery">
+          <button class="gallery-slot" type="button" data-title="Technicolor Camera" data-description="A large camera system used to capture colour film before digital cameras existed." data-src="images/oz-tech-01-technicolor-camera.jpg" data-placeholder="Technicolor Camera">
+            <div class="gallery-image-wrap"><span class="gallery-placeholder">Technicolor Camera</span><img src="images/oz-tech-01-technicolor-camera.jpg" alt="Technicolor camera placeholder" onerror="this.style.display='none'"></div>
+            <div class="gallery-caption"><strong>Technicolor Camera</strong><span>How colour was captured before digital sensors.</span></div>
+          </button>
+
+          <button class="gallery-slot" type="button" data-title="Kansas to Oz" data-description="The famous shift from the dull world of Kansas to the colourful Land of Oz." data-src="images/oz-tech-02-kansas-to-oz.jpg" data-placeholder="Kansas to Oz">
+            <div class="gallery-image-wrap"><span class="gallery-placeholder">Kansas to Oz</span><img src="images/oz-tech-02-kansas-to-oz.jpg" alt="Kansas to Oz transition placeholder" onerror="this.style.display='none'"></div>
+            <div class="gallery-caption"><strong>Kansas to Oz</strong><span>The visual contrast that made colour feel magical.</span></div>
+          </button>
+
+          <button class="gallery-slot" type="button" data-title="Film Reels and Chemicals" data-description="Images were stored on physical film and developed through chemical processing." data-src="images/oz-tech-03-film-reels.jpg" data-placeholder="Film Reels">
+            <div class="gallery-image-wrap"><span class="gallery-placeholder">Film Reels</span><img src="images/oz-tech-03-film-reels.jpg" alt="Film reels placeholder" onerror="this.style.display='none'"></div>
+            <div class="gallery-caption"><strong>Film Reels</strong><span>Physical film had to be developed, handled, and edited.</span></div>
+          </button>
+
+          <button class="gallery-slot" type="button" data-title="Emerald City Set" data-description="Painted scenery, lighting, perspective, and studio sets helped make Oz feel real." data-src="images/oz-tech-04-emerald-city-set.jpg" data-placeholder="Emerald City Set">
+            <div class="gallery-image-wrap"><span class="gallery-placeholder">Emerald City Set</span><img src="images/oz-tech-04-emerald-city-set.jpg" alt="Emerald City set placeholder" onerror="this.style.display='none'"></div>
+            <div class="gallery-caption"><strong>Emerald City Set</strong><span>Fantasy worlds were built by artists and technicians.</span></div>
+          </button>
+
+          <button class="gallery-slot" type="button" data-title="Practical Effects" data-description="Before CGI, filmmakers used wires, models, costumes, lighting, and camera tricks." data-src="images/oz-tech-05-practical-effects.jpg" data-placeholder="Practical Effects">
+            <div class="gallery-image-wrap"><span class="gallery-placeholder">Practical Effects</span><img src="images/oz-tech-05-practical-effects.jpg" alt="Practical effects placeholder" onerror="this.style.display='none'"></div>
+            <div class="gallery-caption"><strong>Practical Effects</strong><span>Flying monkeys, storms, and magic needed physical tricks.</span></div>
+          </button>
+        </div>
+      </div>
+      <div class="activities-card" id="activities">
+        <h2>Activities</h2>
+        <p class="intro-text">
+          Drag each answer into the correct place. When you are finished, download your CSV and send it to your teacher.
+        </p>
+
+        <div class="student-details">
+          <label>
+            Student name
+            <input id="studentName" type="text" placeholder="Type your name">
+          </label>
+          <label>
+            Class
+            <input id="studentClass" type="text" placeholder="Type your class">
+          </label>
+        </div>
+
+        <div class="activity-grid">
+          <article class="activity" id="activity-cloze">
+            <div class="activity-header">
+              <h3>Activity 1: Technicolor Cloze</h3>
+              <p>Drag the mixed-up technology words into the correct gaps.</p>
+            </div>
+            <div class="activity-body">
+              <strong>Word Bank</strong>
+              <div class="drag-bank" id="clozeBank" data-group="cloze">
+                <span class="drag-item" draggable="true" data-group="cloze" data-value="dyes">dyes</span>
+                <span class="drag-item" draggable="true" data-group="cloze" data-value="digital">digital</span>
+                <span class="drag-item" draggable="true" data-group="cloze" data-value="Technicolor">Technicolor</span>
+                <span class="drag-item" draggable="true" data-group="cloze" data-value="chemicals">chemicals</span>
+                <span class="drag-item" draggable="true" data-group="cloze" data-value="film">film</span>
+                <span class="drag-item" draggable="true" data-group="cloze" data-value="colours">colours</span>
+              </div>
+
+              <p>The Wizard of Oz used a process called <span class="drop-zone" data-group="cloze" data-answer="Technicolor"></span>.</p>
+              <p>Images were recorded onto strips of <span class="drop-zone" data-group="cloze" data-answer="film"></span>.</p>
+              <p>The film was developed using <span class="drop-zone" data-group="cloze" data-answer="chemicals"></span> and coloured <span class="drop-zone" data-group="cloze" data-answer="dyes"></span>.</p>
+              <p>Today most movies use <span class="drop-zone" data-group="cloze" data-answer="digital"></span> cameras instead.</p>
+              <p>Audiences in 1939 were amazed by the bright <span class="drop-zone" data-group="cloze" data-answer="colours"></span> they saw on screen.</p>
+            </div>
+          </article>
+
+          <article class="activity" id="activity-film-digital">
+            <div class="activity-header">
+              <h3>Activity 2: Film vs Digital</h3>
+              <p>Sort each statement into the correct column.</p>
+            </div>
+            <div class="activity-body">
+              <div class="sort-grid">
+                <div class="sort-column" data-group="filmDigital" data-answer="Film">
+                  <h4>Film Technology 1939</h4>
+                  <div class="sort-placeholder"></div><div class="sort-placeholder"></div><div class="sort-placeholder"></div><div class="sort-placeholder"></div><div class="sort-placeholder"></div>
+                </div>
+                <div class="sort-column" data-group="filmDigital" data-answer="Digital">
+                  <h4>Digital Technology Today</h4>
+                  <div class="sort-placeholder"></div><div class="sort-placeholder"></div><div class="sort-placeholder"></div><div class="sort-placeholder"></div><div class="sort-placeholder"></div>
+                </div>
+              </div>
+
+              <strong>Statement Bank</strong>
+              <div class="sort-bank" id="filmDigitalBank" data-group="filmDigital">
+                <span class="drag-item" draggable="true" data-group="filmDigital" data-value="Stored images on reels" data-correct="Film">Stored images on reels</span>
+                <span class="drag-item" draggable="true" data-group="filmDigital" data-value="Stored as computer files" data-correct="Digital">Stored as computer files</span>
+                <span class="drag-item" draggable="true" data-group="filmDigital" data-value="Needed chemical processing" data-correct="Film">Needed chemical processing</span>
+                <span class="drag-item" draggable="true" data-group="filmDigital" data-value="Can be viewed immediately" data-correct="Digital">Can be viewed immediately</span>
+                <span class="drag-item" draggable="true" data-group="filmDigital" data-value="Physical editing and cutting" data-correct="Film">Physical editing and cutting</span>
+                <span class="drag-item" draggable="true" data-group="filmDigital" data-value="Edited using software" data-correct="Digital">Edited using software</span>
+                <span class="drag-item" draggable="true" data-group="filmDigital" data-value="Could be scratched or damaged" data-correct="Film">Could be scratched or damaged</span>
+                <span class="drag-item" draggable="true" data-group="filmDigital" data-value="Easy to copy and share" data-correct="Digital">Easy to copy and share</span>
+                <span class="drag-item" draggable="true" data-group="filmDigital" data-value="Used large reels in cameras" data-correct="Film">Used large reels in cameras</span>
+                <span class="drag-item" draggable="true" data-group="filmDigital" data-value="Uses digital sensors" data-correct="Digital">Uses digital sensors</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="activity" id="activity-effects">
+            <div class="activity-header">
+              <h3>Activity 3: Special Effects Then and Now</h3>
+              <p>Drag each effect into the time period where it belongs.</p>
+            </div>
+            <div class="activity-body">
+              <div class="sort-grid">
+                <div class="sort-column" data-group="effects" data-answer="1939">
+                  <h4>1939 Methods</h4>
+                  <div class="sort-placeholder"></div><div class="sort-placeholder"></div><div class="sort-placeholder"></div><div class="sort-placeholder"></div>
+                </div>
+                <div class="sort-column" data-group="effects" data-answer="Today">
+                  <h4>Modern Methods</h4>
+                  <div class="sort-placeholder"></div><div class="sort-placeholder"></div><div class="sort-placeholder"></div><div class="sort-placeholder"></div>
+                </div>
+              </div>
+
+              <strong>Effect Bank</strong>
+              <div class="sort-bank" id="effectsBank" data-group="effects">
+                <span class="drag-item" draggable="true" data-group="effects" data-value="Wire effects" data-correct="1939">Wire effects</span>
+                <span class="drag-item" draggable="true" data-group="effects" data-value="CGI" data-correct="Today">CGI</span>
+                <span class="drag-item" draggable="true" data-group="effects" data-value="Painted backdrops" data-correct="1939">Painted backdrops</span>
+                <span class="drag-item" draggable="true" data-group="effects" data-value="Green screen" data-correct="Today">Green screen</span>
+                <span class="drag-item" draggable="true" data-group="effects" data-value="Hand-built sets" data-correct="1939">Hand-built sets</span>
+                <span class="drag-item" draggable="true" data-group="effects" data-value="Motion capture" data-correct="Today">Motion capture</span>
+                <span class="drag-item" draggable="true" data-group="effects" data-value="Costumes and makeup" data-correct="1939">Costumes and makeup</span>
+                <span class="drag-item" draggable="true" data-group="effects" data-value="Digital animation" data-correct="Today">Digital animation</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="activity" id="activity-cause-effect">
+            <div class="activity-header">
+              <h3>Activity 4: Cause and Effect</h3>
+              <p>Match each film-making choice to the effect it had on the audience.</p>
+            </div>
+            <div class="activity-body">
+              <div class="match-grid">
+                <div class="match-target" data-group="causeEffect" data-answer="Oz felt magical">
+                  <h4>Bright Technicolor colours</h4>
+                </div>
+                <div class="match-target" data-group="causeEffect" data-answer="Oz seemed more exciting than Kansas">
+                  <h4>Black-and-white Kansas</h4>
+                </div>
+                <div class="match-target" data-group="causeEffect" data-answer="Flying monkeys appeared to fly">
+                  <h4>Wire effects</h4>
+                </div>
+                <div class="match-target" data-group="causeEffect" data-answer="Actors became fantasy characters">
+                  <h4>Costumes and makeup</h4>
+                </div>
+              </div>
+
+              <strong>Effect Bank</strong>
+              <div class="sort-bank" id="causeEffectBank" data-group="causeEffect">
+                <span class="drag-item" draggable="true" data-group="causeEffect" data-value="Actors became fantasy characters">Actors became fantasy characters</span>
+                <span class="drag-item" draggable="true" data-group="causeEffect" data-value="Oz felt magical">Oz felt magical</span>
+                <span class="drag-item" draggable="true" data-group="causeEffect" data-value="Flying monkeys appeared to fly">Flying monkeys appeared to fly</span>
+                <span class="drag-item" draggable="true" data-group="causeEffect" data-value="Oz seemed more exciting than Kansas">Oz seemed more exciting than Kansas</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="activity" id="activity-reflection">
+            <div class="activity-header">
+              <h3>Final Reflection: The Technology Behind the Curtain</h3>
+              <p>Use what you have learned to explain your thinking.</p>
+            </div>
+            <div class="activity-body">
+              <div class="reflection-box">
+                <strong>If you had to make The Wizard of Oz without computers, which part would be the most difficult and why?</strong>
+                <textarea class="reflection-text" id="reflection" placeholder="Write your answer here..."></textarea>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="activity-actions">
+          <button class="action-button" type="button" onclick="checkAnswers()">Check Answers</button>
+          <button class="action-button gold" type="button" onclick="downloadCSV()">Download CSV for Teacher</button>
+          <button class="action-button" type="button" onclick="resetActivities()">Reset Activities</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+      </div>
+
+      <div class="back-link">
+        <a href="index.html">← Back to Hinemoa and the Great South Road</a>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Full screen image viewer">
+    <div class="lightbox-content">
+      <div class="lightbox-image-frame">
+        <span class="lightbox-placeholder" id="lightboxPlaceholder"></span>
+        <img id="lightboxImage" src="" alt="">
+      </div>
+      <div class="lightbox-caption">
+        <div>
+          <strong id="lightboxTitle"></strong>
+          <span id="lightboxDescription"></span>
+        </div>
+        <button class="close-lightbox" id="closeLightbox" type="button">Close ×</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    The Wizard of Oz · Film Technology and Legacy
+  </footer>
+
+  <script>
+    let draggedItem = null;
+
+    function setupDragDrop() {
+      document.querySelectorAll('.drag-item').forEach(item => {
+        item.addEventListener('dragstart', event => {
+          draggedItem = item;
+          event.dataTransfer.setData('text/plain', item.dataset.value || item.textContent.trim());
+        });
+      });
+
+      document.querySelectorAll('.drop-zone, .drag-bank, .sort-bank, .sort-column, .match-target').forEach(zone => {
+        zone.addEventListener('dragover', event => {
+          event.preventDefault();
+          zone.classList.add('over');
+        });
+
+        zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+
+        zone.addEventListener('drop', event => {
+          event.preventDefault();
+          zone.classList.remove('over');
+          if (!draggedItem) return;
+
+          const itemGroup = draggedItem.dataset.group;
+          const zoneGroup = zone.dataset.group;
+          if (itemGroup !== zoneGroup) return;
+
+          if (zone.classList.contains('sort-column')) {
+            zone.querySelector('.sort-placeholder')?.remove();
+            zone.appendChild(draggedItem);
+          } else if (zone.classList.contains('match-target') || zone.classList.contains('drop-zone')) {
+            if (zone.querySelector('.drag-item')) {
+              const oldItem = zone.querySelector('.drag-item');
+              const homeBank = document.getElementById(itemGroup + 'Bank');
+              if (homeBank) homeBank.appendChild(oldItem);
+            }
+            zone.appendChild(draggedItem);
+          } else if (zone.classList.contains('drag-bank') || zone.classList.contains('sort-bank')) {
+            zone.appendChild(draggedItem);
+          }
+
+          draggedItem = null;
+        });
+      });
+    }
+
+    function getPlacedValue(zone) {
+      const item = zone.querySelector('.drag-item');
+      return item ? item.dataset.value : '';
+    }
+
+    function scoreActivities() {
+      let total = 0;
+      let correct = 0;
+
+      document.querySelectorAll('.drop-zone[data-answer], .match-target[data-answer]').forEach(zone => {
+        total++;
+        if (getPlacedValue(zone) === zone.dataset.answer) correct++;
+      });
+
+      document.querySelectorAll('.sort-column .drag-item').forEach(item => {
+        total++;
+        const column = item.closest('.sort-column');
+        if (column && item.dataset.correct === column.dataset.answer) correct++;
+      });
+
+      return { correct, total };
+    }
+
+    function collectAnswers() {
+      const cloze = Array.from(document.querySelectorAll('#activity-cloze .drop-zone')).map((zone, i) => ({
+        activity: 'Technicolor Cloze',
+        question: 'Cloze ' + (i + 1),
+        answer: getPlacedValue(zone),
+        placedIn: '',
+        correctAnswer: zone.dataset.answer,
+        isCorrect: getPlacedValue(zone) === zone.dataset.answer
+      }));
+
+      const filmDigital = Array.from(document.querySelectorAll('#activity-film-digital .sort-column .drag-item')).map((item, i) => {
+        const column = item.closest('.sort-column');
+        return {
+          activity: 'Film vs Digital',
+          question: 'Statement ' + (i + 1),
+          answer: item.dataset.value,
+          placedIn: column ? column.dataset.answer : '',
+          correctAnswer: item.dataset.correct,
+          isCorrect: column && item.dataset.correct === column.dataset.answer
+        };
+      });
+
+      const effects = Array.from(document.querySelectorAll('#activity-effects .sort-column .drag-item')).map((item, i) => {
+        const column = item.closest('.sort-column');
+        return {
+          activity: 'Special Effects Then and Now',
+          question: 'Effect ' + (i + 1),
+          answer: item.dataset.value,
+          placedIn: column ? column.dataset.answer : '',
+          correctAnswer: item.dataset.correct,
+          isCorrect: column && item.dataset.correct === column.dataset.answer
+        };
+      });
+
+      const causeEffect = Array.from(document.querySelectorAll('#activity-cause-effect .match-target')).map((zone, i) => ({
+        activity: 'Cause and Effect',
+        question: zone.querySelector('h4') ? zone.querySelector('h4').textContent.trim() : 'Cause ' + (i + 1),
+        answer: getPlacedValue(zone),
+        placedIn: '',
+        correctAnswer: zone.dataset.answer,
+        isCorrect: getPlacedValue(zone) === zone.dataset.answer
+      }));
+
+      return [...cloze, ...filmDigital, ...effects, ...causeEffect];
+    }
+
+    function checkAnswers() {
+      const { correct, total } = scoreActivities();
+      document.getElementById('feedback').textContent = 'Score: ' + correct + ' / ' + total + '. You can keep moving answers, then download the CSV when you are finished.';
+    }
+
+    function csvEscape(value) {
+      const text = String(value ?? '');
+      return '"' + text.replace(/"/g, '""') + '"';
+    }
+
+    function downloadCSV() {
+      const studentName = document.getElementById('studentName').value.trim();
+      const studentClass = document.getElementById('studentClass').value.trim();
+      const reflection = document.getElementById('reflection').value.trim();
+      const { correct, total } = scoreActivities();
+      const answers = collectAnswers();
+
+      const rows = [
+        ['Student Name', studentName],
+        ['Class', studentClass],
+        ['Resource', 'The 1939 Film and the Legacy of The Wizard of Oz'],
+        ['Score', correct + ' / ' + total],
+        ['Reflection', reflection],
+        [],
+        ['Activity', 'Question', 'Student Answer', 'Placed In', 'Correct Answer', 'Correct?']
+      ];
+
+      answers.forEach(item => rows.push([
+        item.activity,
+        item.question,
+        item.answer,
+        item.placedIn,
+        item.correctAnswer,
+        item.isCorrect ? 'Yes' : 'No'
+      ]));
+
+      const csv = rows.map(row => row.map(csvEscape).join(',')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const safeName = (studentName || 'student').replace(/[^a-z0-9_-]/gi, '_');
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = safeName + '_oz_film_technology_results.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      document.getElementById('feedback').textContent = 'CSV downloaded. Send that file to your teacher.';
+    }
+
+    function resetActivities() {
+      ['cloze', 'filmDigital', 'effects', 'causeEffect'].forEach(group => {
+        const bank = document.getElementById(group + 'Bank');
+        if (!bank) return;
+        document.querySelectorAll('.drag-item[data-group="' + group + '"]').forEach(item => bank.appendChild(item));
+      });
+
+      document.querySelectorAll('.sort-column').forEach(column => {
+        const needed = column.closest('#activity-film-digital') ? 5 : 4;
+        const current = column.querySelectorAll('.sort-placeholder').length;
+        for (let i = current; i < needed; i++) {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'sort-placeholder';
+          column.appendChild(placeholder);
+        }
+      });
+
+      document.getElementById('feedback').textContent = '';
+    }
+
+
+
+    function setupGalleryLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const lightboxPlaceholder = document.getElementById('lightboxPlaceholder');
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const lightboxDescription = document.getElementById('lightboxDescription');
+      const closeLightbox = document.getElementById('closeLightbox');
+
+      if (!lightbox) return;
+
+      document.querySelectorAll('.gallery-slot').forEach(slot => {
+        slot.addEventListener('click', () => {
+          const src = slot.dataset.src || '';
+          const title = slot.dataset.title || 'Image';
+          const description = slot.dataset.description || '';
+          const placeholder = slot.dataset.placeholder || title;
+
+          lightboxTitle.textContent = title;
+          lightboxDescription.textContent = description;
+          lightboxPlaceholder.textContent = placeholder;
+          lightboxImage.alt = title;
+          lightboxImage.style.display = 'block';
+          lightboxImage.src = src;
+          lightbox.classList.add('open');
+          lightbox.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      lightboxImage.addEventListener('error', () => {
+        lightboxImage.style.display = 'none';
+      });
+
+      function close() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+      }
+
+      closeLightbox.addEventListener('click', close);
+      lightbox.addEventListener('click', event => {
+        if (event.target === lightbox) close();
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && lightbox.classList.contains('open')) close();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupDragDrop();
+      setupGalleryLightbox();
+    });
+  </script>
+</body>
+</html>
